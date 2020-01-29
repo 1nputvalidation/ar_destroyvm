@@ -1,0 +1,16 @@
+---
+- name: "MURDERING VM"
+  vmware_guest:
+    hostname:      '{{ vcenter_ip }}'
+    username:      '{{ vcenter_user }}'
+    password:      '{{ vcenter_password }}'
+    datacenter:    '{{ vcenter_datacenter }}'
+    datastore:     '{{  vcenter_datastore }}'
+    cluster:       '{{ vcenter_cluster }}'
+    folder:        '/{{ vcenter_folder }}/{{ vm_folder }}'
+    validate_certs: no
+
+    name: '{{ hostname }}'
+    state: absent
+    force: yes
+  delegate_to: localhost
